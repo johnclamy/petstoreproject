@@ -4,3 +4,7 @@ from django.shortcuts import render
 
 def home_page(request: HttpRequest) -> HttpResponse:
     return render(request, 'default/index.html')
+
+
+def about_us_page(request: HttpRequest) -> HttpResponse:
+    return render(request, 'default/about-us.html')
