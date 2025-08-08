@@ -74,7 +74,7 @@
 .header-top {
     background-color: var(--dj-bg-inverse);
     color: var(--bs-light);
-    padding: calc(var(--padding) * 2) 0;
+    padding: calc(var(--padding) * 1.5) 0;
 }
 
 .header-top__address {
