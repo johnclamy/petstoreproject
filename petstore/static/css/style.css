@@ -56,6 +56,7 @@
 a {
     transition: 0.3s;
 }
+
 a:focus,
 a:hover {
   text-decoration: none;
@@ -99,6 +100,10 @@ img {
         "YTLC" 500;
 }
 
+.page-wrapper {
+    height: 100vh;
+}
+
 /* Header */
 .header-top {
     background-color: var(--dj-bg-inverse);
@@ -121,3 +126,22 @@ img {
 .header-top__address b i {
     margin-right: calc(var(--margin) * 1.5);
 }
+
+.header-top__address a {
+    color: var(--bs-light);
+}
+
+nav {
+    height: 70px;
+    background: var(--bs-white);
+    color: var(--dj-text-2);
+    padding: 0 calc(var(--padding) * 2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+
+/* Default app: index.html, about-us.html */
