@@ -45,8 +45,9 @@
     --dj-link-visited: var(--bs-purple)                 /* light background */
 
     /* Fonts */
-    --font-size: 1rem; /* 16px */
-    --line-height: 1.5;
+    --base-font-size: 16px;
+    --font-size: 1rem;
+    --base-line-height: 1.5;
 
     /* Layouts */
     --margin: 1rem;
@@ -81,6 +82,12 @@ li {
 
 img {
     max-width: 100%;
+}
+
+body {
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    color: var(--dj-text-2);
 }
 
 .oswald-headings {
@@ -132,7 +139,7 @@ img {
 }
 
 nav {
-    height: 70px;
+    height: 4.375rem;
     background: var(--bs-white);
     color: var(--dj-text-2);
     padding: 0 calc(var(--padding) * 2);
@@ -141,6 +148,56 @@ nav {
     align-items: center;
     position: sticky;
     top: 0;
+}
+
+.nav-links,
+.nav-links__standard,
+.nav-links__accounts {
+  display: flex;
+}
+
+.nav-links__standard {
+  margin-right: 4rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    border: 3px solid #bb3e03;
+}
+
+.logo b {
+    text-transform: capitalize;
+    color: var(--dj-dark-orange);
+    font-size: calc(var(--font-size) * 1.85);
+    margin: 0 calc(var(--margin) * 0.5);
+}
+
+nav li {
+  list-style: none;
+  margin: 0 calc(var(--margin) * 0.5);
+  text-transform: capitalize;
+}
+nav a {
+  text-decoration: none;
+  color: var(--dj-text-2);
+}
+nav a:hover {
+  color: var(--dj-dark-orange);
+}
+nav a::after {
+  content: "";
+  display: block;
+  height: 0.1875rem;
+  background: var(--dj-dark-orange);
+  width: 0%;
+  transition: all ease-in-out 300ms;
+}
+nav a:hover::after {
+  width: 100%;
 }
 
 
