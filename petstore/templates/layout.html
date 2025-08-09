@@ -25,21 +25,29 @@
                     </b>
                 </address>
             </section>
-            <nav class="nav-links">
-                <a href="" class="nav-links__item active">home</a>
-                <a href="" class="nav-links__item">pets</a>
-                <a href="" class="nav-links__item">cart</a>
-                <a href="" class="nav-links__item">orders</a>
-                <a href="" class="nav-links__item">login</a>
-                <a href="" class="nav-links__item">logout</a>
-                <a href="" class="nav-links__item">sign up</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
+            <nav>
+                <section class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid rounded-circle">
+                    <b>petzy</b>
+                </section>
+                <section class="nav-links">
+                    <ul class="nav-links__standard">
+                        <li><a href="#" class="active">home</a></li>
+                        <li><a href="#">pets</a></li>
+                        <li><a href="#">cart</a></li>
+                        <li><a href="#">orders</a></li>
+                    </ul>
+                    <ul class="nav-links__accounts">
+                        <li><a href="#">login</a></li>
+                        <li><a href="#">logout</a></li>
+                        <li><a href="#">sign up</a></li>
+                    </ul>
+                </section>                
             </nav>
+            <section class="hero-section"></div>
         </header>
         
-        <div class="nunito-sans-typography">
+        <div class="nunito-sans-typography page-wrapper">
             {% block content %}
             {% endblock content %}
         </div>
