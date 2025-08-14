@@ -15,36 +15,44 @@
     <body>
         <header>
             <section class="header-top">
-                <address class="header-top__address">
-                    <em>+880 4664 216 &nbsp;&nbsp;&nbsp;Mon - Sat 10.00 - 7.00</em>
-                    <b>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </b>
-                </address>
+                <div class="header-top__address">
+                    <p class="me-4"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;<em>+44 11122 3333</em></p>
+                    <p><i class="fa-solid fa-calendar"></i>&nbsp;&nbsp;<em>Mon - Sat 10.00 - 7.00</em></p>
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                </ul>                
             </section>
             <nav>
                 <section class="logo">
-                    <img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid rounded-circle">
-                    <b>petzy</b>
+                    <a href="#">
+                        <img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid rounded-circle">
+                        <b>petzy</b>
+                    </a>
                 </section>
-                <section class="nav-links">
-                    <ul class="nav-links__standard">
-                        <li><a href="#" class="active">home</a></li>
-                        <li><a href="#">pets</a></li>
-                        <li><a href="#">cart</a></li>
-                        <li><a href="#">orders</a></li>
-                    </ul>
-                    <ul class="nav-links__accounts">
-                        <li><a href="#">login</a></li>
-                        <li><a href="#">logout</a></li>
-                        <li><a href="#">sign up</a></li>
-                    </ul>
-                </section>                
+                <div class="toggle">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">pets</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="#">cart</a></li>
+                    <li><a href="#">orders</a></li>
+                    <li><a href="#">about us</a></li>
+                    <li><a href="#">contact</a></li>
+                    <li><a href="#">logout</a></li>
+                    <li><a href="#">login</a></li>                        
+                    <li class="pe-lg-0"><a href="#">sign up</a></li>
+                </ul>
             </nav>
-            <section class="hero-section"></div>
         </header>
         
         <div class="nunito-sans-typography page-wrapper">
