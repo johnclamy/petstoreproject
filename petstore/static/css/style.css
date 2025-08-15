@@ -314,5 +314,11 @@ nav {
         z-index: 3;
     }
 
-    
+    nav li:hover {
+        background: rgba(0,0,0,.1);
+    }
+
+    .nav-links li a:hover:after {
+    width: 0;
+    }    
 }
