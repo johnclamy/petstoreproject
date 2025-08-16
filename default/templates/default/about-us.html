@@ -1,7 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 {% load static %}
-<section>
-    <h1 class="oswald-headings">Find out all about our company and how we got here!</h1>
-</section>
+<div class="container mt-5">
+    <section class="row align-items-center">
+        <div class="col-lg-6 mb-3 mb-lg-0">
+            <img src="{% static 'img/family-with-pets.jpg'%}" alt="Family with their pets within a wooden frame" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="oswald-headings mb-4">About us and our company</h1>
+            <p class="lead mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere a explicabo aut eum ratione placeat dignissimos laboriosam blanditiis corrupti? Mollitia fugit ratione dolores eaque, quaerat deserunt nostrum voluptates placeat hic.</p>
+            <p class="lead mb-4">Ratione placeat dignissimos laboriosam blanditiis.Etalli Mollitia fugit ratione dolores eaque, quaerat deserunt nostrum voluptates placeat amet consectetur adipisicing elit. Facere a explicabo aut eum ratione placeat dignissimos laboriosam blanditiis corrupti.</p>
+            <a href="#" class="btn btn-dj-primary text-capitalize float-end me-4 mt-3 mb-5">contact us</a>
+        </div>
+        
+    </section>
+</div>
 {% endblock content %}
