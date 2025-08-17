@@ -466,6 +466,11 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+.newsletter-input:focus {
+    outline: var(--dj-border-3);
+    background-color: #94d2bd3a;
+}
+
 .btn-subscribe {
     background: linear-gradient(45deg, var(--dj-dark-cyan), var(--dj-pale-blue));
     border: none;
