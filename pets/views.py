@@ -142,3 +142,13 @@ def pet_list_page(request: HttpRequest) -> HttpResponse:
     template_data['pets'] = pets
 
     return render(request, 'pets/index.html', {'data': template_data})
+
+
+def pet_detail_page(request: HttpRequest, id: int) -> HttpResponse:
+    template_data = {}
+    pet = pets[id - 1]
+
+    template_data['page_title'] = "Your pet selection was {0} ({1}) | Detail pet page".format(pet['name'], pet['breed'])
+    template_data['pet'] = pet
+
+    return render(request, 'pets/detail.html', {'data': template_data})
