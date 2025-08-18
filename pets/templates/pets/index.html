@@ -15,7 +15,7 @@
                 <div class="p-2 card align-items-center pt-4">
                     <img src="{% static 'img/family-with-pets.jpg' %}" class="card-img-top rounded">
                     <div class="card-body text-center">
-                        {{ pet.name }} ({{ pet.breed }})
+                        <a href="{% url 'pets.pet_detail_page' id=pet.id %}" class="btn bg-dark text-white">{{ pet.name }} ({{ pet.breed }})</a>
                     </div>
                 </div>
             </section>
