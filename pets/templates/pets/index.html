@@ -13,9 +13,12 @@
             {% for pet in data.pets %}
             <section class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 p-2">
                 <div class="p-2 card align-items-center pt-4">
-                    <img src="{% static 'img/family-with-pets.jpg' %}" class="card-img-top rounded">
+                    <img src="{% static 'img/family-with-pets.jpg' %}" class="rounded">
                     <div class="card-body text-center">
-                        <a href="{% url 'pets.pet_detail_page' id=pet.id %}" class="btn bg-dark text-white">{{ pet.name }} ({{ pet.breed }})</a>
+                        <a href="{% url 'pets.pet_detail_page' id=pet.id %}" class="btn" style="background: var(--dj-bg-3);">
+                            <b class="fs-4 fw-bold" style="color: var(--dj-text-4)">{{ pet.name }}</b><br />
+                            <i class="small text-muted fst-italic" style="color:var(--dj-text-3)">{{ pet.breed }}</i>
+                        </a>
                     </div>
                 </div>
             </section>
