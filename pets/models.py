@@ -11,6 +11,6 @@ class Pet(models.Mode):
     image = models.ImageField(upload_to='pet_images/')
 
     def __str__(self):
-        return '{0} ({1}) - id: {3}'.format(self.breed, self.name, str(self.id))
+        return '{0} ({1}) - id: {3}'.format(self.breed, self.name.upper(), str(self.id))
     
 
