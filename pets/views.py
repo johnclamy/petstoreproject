@@ -5,8 +5,13 @@ from .models import Pet
 
 def pet_list_page(request: HttpRequest) -> HttpResponse:
     template_data = {}
+    search_term = request.GET.get('search')
     template_data['page_title'] = 'Pups available for sale | Pet list page'
-    template_data['pets'] = Pet.objects.all()
+
+    if not search_term:
+        template_data['pets'] = Pet.objects.all()
+    else:
+        template_data['pets'] = Pet.objects.filter(breed__icontains=search_term)          
 
     return render(request, 'pets/index.html', {'data': template_data})
 
