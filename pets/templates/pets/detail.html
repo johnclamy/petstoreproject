@@ -5,13 +5,48 @@
     <div class="container">
         <section class="row mt-5">
             <div class="col-lg-6 mx-auto mb-3">
-                <h2>{{ data.pet.name}} ({{ data.pet.breed }})</h2>
-                <hr />
-                <p>{{ data.pet.short_descr }}</p>
-                <p>£{{ data.pet.price }}</p>
+                <header class="d-flex flex-wrap align-items-center justify-content-between">
+                    <h2 class="oswald-headings fs-1 mb-2">{{ data.pet.name}} <span class="nunito-sans-typography fs-5 fw-lighter">({{ data.pet.breed }})</span></h2>
+                    <i class="badge mb-2 mb-lg-3 px-4 py-2 fs-4" style="background: var(--dj-yellow); color: var(--dj-text);">£{{ data.pet.price }}</i>
+                </header>
+                <hr class="mt-2 mt-xxl-3" />
+                <p class="mb-3 fs-5">{{ data.pet.description }}</p>
             </div>
             <div class="col-lg-6 mx-auto mb-3 text-center">
-                <img src="{% static 'img/family-with-pets.jpg' %}" class="rounded" />
+                <img src="{{ data.pet.image.url }}" class="rounded" />
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col">
+                <h2>Client content review goes here...</h2>                   
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p class="mb-0">Child <em>safety</em> with a {{ data.pet.breed }}</p>
+                            {% if data.pet.is_kids_friendly %}
+                                <i class="fa-solid fa-shield-dog"  style="color: #0a0"></i>
+                            {% else %}
+                                <i class="fa-solid fa-circle-exclamation" style="color: #a00"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            This dog
+                                {% if data.pet.is_kids_friendly %}                                        
+                                    <span class="text-success">could
+                                {% else %}
+                                    <span class="text-danger fw-bolder"><strong>should not</strong>
+                                {% endif %}
+                                be left alone to play with kids.</span>
+                        </h5>
+                        <p class="card-text small" style="line-height: 1.2">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                        <a href="#">Fine out more</a>
+                    </div>
+                </div> {% comment %} end of inner-card  {% endcomment %}
             </div>
         </section>
     </div>

@@ -11,15 +11,28 @@
         </header>
         <article class="row pet-list-bg" style="background: linear-gradient(to bottom right, #e9d8a6, #94d2bd);">
             {% for pet in data.pets %}
-            <section class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 p-2">
-                <div class="p-2 card align-items-center pt-4">
-                    <img src="{% static 'img/family-with-pets.jpg' %}" class="rounded">
-                    <div class="card-body text-center">
-                        <a href="{% url 'pets.pet_detail_page' id=pet.id %}" class="btn" style="background: var(--dj-bg-3);">
+            <section class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 p-2" style="height: auto;">
+                <div class="p-2 card align-items-center pt-4 h-100">
+                    <a href="{% url 'pets.pet_detail_page' id=pet.id %}"><img src="{{ pet.image.url }}" class="rounded"></a>
+                    <div class="card-body text-center w-100">
+                        <a href="{% url 'pets.pet_detail_page' id=pet.id %}" class="btn w-100" style="background: var(--dj-bg-3);">
                             <b class="fs-4 fw-bold" style="color: var(--dj-text-4)">{{ pet.name }}</b><br />
                             <i class="small text-muted fst-italic" style="color:var(--dj-text-3)">{{ pet.breed }}</i>
                         </a>
                     </div>
+                    <footer class="d-flex justify-content-between align-items-center w-100 px-4">
+                    <p><b class="badge rounded-pill bg-light text-dark small">£{{ pet.price }}</b></p>
+                    <p>
+                        <em style="color: var(--dj-text-3)">
+                            <i class="fa-solid fa-child"></i>&nbsp;
+                            {% if pet.is_kids_friendly %}
+                                <i class="fa-solid fa-shield-dog"  style="color: #0a0"></i>
+                            {% else %}
+                                <i class="fa-solid fa-circle-exclamation" style="color: #a00"></i>
+                            {% endif %}
+                        </em>
+                    </p>
+                </footer>
                 </div>
             </section>
             {% endfor %}
