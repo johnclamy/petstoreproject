@@ -43,7 +43,7 @@
     --dj-link: var(--dj-dark-slate-blue) !important;    /* light background */
     --dj-link-hover: var(--dj-dark-cyan) !important;    /* light background */
     --dj-link-active: var(--dj-dark-orange) !important; /* light background */
-    --dj-link-visited: var(--bs-purple)                 /* light background */
+    --dj-link-visited: var(--bs-purple) !important;     /* light background */
 
     /* Fonts */
     --base-font-size: 16px;
@@ -57,6 +57,22 @@
 
 a {
     transition: 0.3s;
+}
+
+a:link {
+    color: var(--dj-link);
+}
+
+a:visited {
+    color: var(--dj-link-visited);
+}
+
+a:hover {
+    color: var(--dj-link-hover);
+}
+
+a:active {
+    color: var(--dj-link-active);
 }
 
 a,
