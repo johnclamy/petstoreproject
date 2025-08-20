@@ -526,8 +526,6 @@ nav {
     }
 }
 
-
-
 /* Home page: index.html */
 /* Hero section */
 .hero-section {
@@ -554,4 +552,70 @@ nav {
     font-weight: 600;
     color: var(--bs-white);
     padding: 0 calc(var(--padding) * 1.5);
+}
+
+/* Pet list page: index.html */
+/* search bar */
+
+.search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.search-bar {
+    background-color: var(--bs-white);
+    border-radius: 3.125rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: calc((var(--padding) * 0.625));
+    max-width: 31.25rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search-bar:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form-control.search-input {
+    border: none;
+    background: transparent;
+    padding-left: calc((var(--padding) * 1.25));
+    font-size: var(--font-size);
+    height: 3.125rem;
+}
+
+.form-control.search-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.form-control.search-input::placeholder {
+    font-weight: 600;
+    font-style: italic;
+    opacity: 0.5;
+    color: var(--dj-text-2);
+}
+
+.btn-search {
+    background-color: var(--dj-yellow) !important;
+    color: var(--bs-dark);
+    font-weight: 600;
+    border-radius: 3.125rem;
+    padding: calc((var(--padding) * 0.625)) calc((var(--padding) * 1.25));
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: var(--dj-pale-blue) !important;
+    transform: scale(1.05);
+}
+
+.search-icon {
+    color: var(--bs-dark);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
