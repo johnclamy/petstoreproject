@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from .forms import AccountsForm, Errors
 
 
@@ -44,3 +45,8 @@ def signin_page(request: HttpRequest) -> HttpResponse:
             login(request, user)
             return redirect('default.home_page')
 
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('default.home_page')
