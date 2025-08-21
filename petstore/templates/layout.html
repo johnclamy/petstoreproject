@@ -44,13 +44,13 @@
                     <li><a href="{% url 'default.home_page' %}">home</a></li>
                     <li><a href="{% url 'pets.pet_list_page' %}">pets</a></li>
                     <li><a href="#">blog</a></li>
-                    <li><a href="#">cart</a></li>
-                    <li><a href="#">orders</a></li>
                     <li><a href="{% url 'default.about_us_page' %}">about us</a></li>
                     <li><a href="#">contact</a></li>
+                    <li><a href="#">cart</a></li>
+                    <li><a href="#">orders</a></li>
                     <li><a href="#">logout</a></li>
                     <li><a href="#">login</a></li>                        
-                    <li class="pe-lg-0"><a href="#">sign up</a></li>
+                    <li class="pe-lg-0"><a href="{% url 'accounts.register_page' %}">sign up</a></li>
                 </ul>
             </nav>
         </header>
