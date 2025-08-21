@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="p-3 mt-4">
+    <div class="container">
+        <section class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow p-3 mb-4 rounded">
+                    <div class="card-body">
+                        <header>
+                            <h2 class="display-5 text-capitalize">sign in</h2>
+                            <hr />
+                        </header>
+                        {% if data.error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ data.error }}
+                        </div>
+                        {% endif %}
+                        <form method="POST">
+                            {% csrf_token %}
+                            <p>
+                                <label for="username">Username</label>
+                                <input id="username" type="text" name="username" required autocomplete="username" class="form-control">
+                            </p>
+                            <p>
+                                <label for="password">Password</label>
+                                <input id="password" type="password" name="password" required autocomplete="current-password" class="form-control">
+                            </p>
+                            <div class="text-start">
+                                <button type="submit" class="btn btn-dj-primary text-capitalize my-3">sign in</button>
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
