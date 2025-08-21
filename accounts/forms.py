@@ -13,9 +13,9 @@ class Errors(ErrorList):
         ]))
 
 
-class MyUserCreationForm(UserCreationForm):
+class AccountsForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
-        super(MyUserCreationForm, self).__init__(*args, **kwargs)
+        super(AccountsForm, self).__init__(*args, **kwargs)
 
         for input_field in ['username', 'password1', 'password2']:
             self.fields[input_field].help_text = None
