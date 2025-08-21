@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from .forms import AccountsForm
+from .forms import AccountsForm, Errors
 
 
 def register_page(request: HttpRequest) -> HttpResponse:
@@ -12,7 +12,7 @@ def register_page(request: HttpRequest) -> HttpResponse:
         return render(request, 'accounts/register.html', {'data': template_data })
 
     elif request.method == 'POST':
-        form = AccountsForm(request.POST)
+        form = AccountsForm(request.POST, error_class=Errors)
 
         if form.is_valid():
             form.save()
