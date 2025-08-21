@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -9,5 +9,14 @@ def register_page(request: HttpRequest) -> HttpResponse:
 
     if request.method == 'GET':
         template_data['form'] = UserCreationForm()
-
         return render(request, 'accounts/register.html', {'data': template_data })
+
+    elif request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('default.home_page')
+        else:
+            template_data['form'] = form
+            return render(request, 'accounts/register.html', {'data': template_data })
