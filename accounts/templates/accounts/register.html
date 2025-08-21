@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-3 mt-4">
+    <div class="container">
+        <section class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow p-3 mb-4 rounded">
+                    <div class="card-body">
+                        <header>
+                            <h2 class="display-4 text-capitalize">sign up</h2>
+                            <hr />
+                        </header>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ data.form.as_p }}
+                            <button type="submit" class="btn btn-dj-primary text-capitalize">sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
