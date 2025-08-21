@@ -17,7 +17,7 @@ def register_page(request: HttpRequest) -> HttpResponse:
 
         if form.is_valid():
             form.save()
-            return redirect('default.home_page')
+            return redirect('accounts.signin_page')
         else:
             template_data['form'] = form
             return render(request, 'accounts/register.html', {'data': template_data })
