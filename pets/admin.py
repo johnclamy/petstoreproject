@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pet
+from .models import Pet, Review
 
 
 class PetAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class PetAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Pet, PetAdmin)
+admin.site.register(Review)
