@@ -16,7 +16,7 @@
     --dj-bg-2: var(--bs-light);                     /* dark text */                                  
     --dj-bg-3: var(--dj-vanilla) !important;        /* dark text */
     --dj-bg-4: var(--dj-dark-orange) !important;    /* light text */
-    --dj-bg-5: var(--dj--pale-blue) !important;     /* dark text */
+    --dj-bg-5: var(--dj-pale-blue) !important;     /* dark text */
     --dj-bg-inverse : var(--dj-black) !important;   /* light text */
 
     /* Text */
