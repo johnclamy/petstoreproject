@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 {% load static %}
-<div class="p-3">
+<div class="p-3 mb-5">
     <div class="container">
         <section class="row mt-5">
             <div class="col-lg-6 mx-auto mb-3">
@@ -10,7 +10,7 @@
                     <i class="badge mb-2 mb-lg-3 px-4 py-2 fs-4" style="background: var(--dj-yellow); color: var(--dj-text);">£{{ data.pet.price }}</i>
                 </header>
                 <hr class="mt-2 mt-xxl-3" />
-                <p class="mb-3 fs-5">{{ data.pet.description }}</p>
+                <p class="mb-3 pb-3 fs-5">{{ data.pet.description }}</p>
             </div>
             <div class="col-lg-6 mx-auto mb-3 text-center">
                 <img src="{{ data.pet.image.url }}" class="rounded" />
@@ -18,15 +18,15 @@
         </section>
 
         <section class="row">
-            <div class="col-md-7 col-lg-6 mb-3">
-                {% if user.is_authenticated %}
-                <div class="container mt-3">
+            <div class="col-md-7 col-lg-6">
+                <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <div class="card shadow p-3 mb-4 rounded text-center">
-                                <div class="card-header">Create a review</div>
+                            <div class="card shadow p-3 rounded text-center">
+                                <div style="background-color: var(--dj-bg-5)" class="card-header">Create a review</div>
                                 <div class="card-body">
-                                    <h3>Tell about your experience with this pet.</h3>
+                                    <h3 class="my-3">Tell about your experience with this pet.</h3>
+                                    {% if user.is_authenticated %}
                                     <form action="{% url 'pets.create_review' id=data.pet.id %}" method="POST">
                                         {% csrf_token %}
                                         <p>
@@ -37,12 +37,24 @@
                                             add review
                                         </button>
                                     </form>
+                                    {% else %}
+                                    <div class="alert alert-light" role="alert">
+                                        <header>
+                                            <h2 class="h5 text-center">You must be signed in to comment.</h2>
+                                        </header>
+                                        <p class="small mt-4">
+                                            Join the conversation with others by 
+                                            <a href="{% url 'accounts.signin_page' %}" class="alert-link">signing in</a> 
+                                            or, if you don't have an account yet, <a href="{% url 'accounts.register_page' %}">register with us
+                                            </a>.
+                                        </p>
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {% endif %}                
+                </div>                
             </div>
 
             <div class="col-md-5 col-lg-6">
