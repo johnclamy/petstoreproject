@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
-from .models import Pet
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Pet, Review
 
 
 def pet_list_page(request: HttpRequest) -> HttpResponse:
@@ -24,3 +25,19 @@ def pet_detail_page(request: HttpRequest, id: int) -> HttpResponse:
     template_data['pet'] = pet
 
     return render(request, 'pets/detail.html', {'data': template_data})
+
+
+@login_required
+def create_review(request: HttpRequest, id: int) -> HttpResponse:
+    if request.method == 'POST' and request.POST['comment'] != '':
+        pet = Pet.objects.get(id=id)
+        review = Review()
+
+        review.comment = request.POST['comment']
+        review.pet = pet
+        review.user = request.user
+        review.save()
+
+        return redirect('pets.pet_detail_page', id=id)
+    else:
+        return redirect('pets.pet_detail_page', id=id)
