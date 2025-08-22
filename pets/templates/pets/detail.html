@@ -30,10 +30,10 @@
                                     <form action="{% url 'pets.create_review' id=data.pet.id %}" method="POST">
                                         {% csrf_token %}
                                         <p>
-                                            <label for="comment">Comment:</label>
+                                            <label for="comments">Comment:</label>
                                             <textarea name="comments" id="comments" rows="5" required class="form-control"></textarea>
                                         </p>
-                                        <button class="mt-2 mb-3 btn btn-dj-primary text-capitalize">
+                                        <button type="submit" class="mt-2 mb-3 btn btn-dj-primary text-capitalize">
                                             add review
                                         </button>
                                     </form>

@@ -29,11 +29,11 @@ def pet_detail_page(request: HttpRequest, id: int) -> HttpResponse:
 
 @login_required
 def create_review(request: HttpRequest, id: int) -> HttpResponse:
-    if request.method == 'POST' and request.POST['comment'] != '':
+    if request.method == 'POST' and request.POST['comments']:    
         pet = Pet.objects.get(id=id)
         review = Review()
 
-        review.comment = request.POST['comment']
+        review.comments = request.POST['comments']
         review.pet = pet
         review.user = request.user
         review.save()
