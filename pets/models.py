@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Pet(models.Model):
@@ -14,3 +15,12 @@ class Pet(models.Model):
         return '{0} ({1})'.format(self.breed, self.name.upper())
     
 
+class Review(models.Model):
+    id = models.AutoField(primary_key=True)
+    comments = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return 'Review for {0} by {1}'.format(self.pet.name, self.user.username)
