@@ -68,3 +68,11 @@ def edit_review(request: HttpRequest, id: int, review_id: int) -> HttpResponse:
         return redirect('pets.pet_detail_page', id=id)
     else:
         return redirect('pets.pet_detail_page', id=id)
+
+
+@login_required
+def delete_review(request: HttpRequest, id: int, review_id: int) -> HttpResponse:
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    review.delete()
+
+    return redirect('pets.pet_detail_page', id=id)
