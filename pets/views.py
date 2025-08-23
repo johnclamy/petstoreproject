@@ -46,15 +46,15 @@ def create_review(request: HttpRequest, id: int) -> HttpResponse:
 
 
 @login_required
-def edit_review(request: HttpRequest, pet_id: int, review_id: int) -> HttpResponse:
+def edit_review(request: HttpRequest, id: int, review_id: int) -> HttpResponse:
     review = get_object_or_404(Review, id=review_id)
 
     if request.user != review.user:
-        return redirect('pets.pet_detail_page', id=pet_id)
+        return redirect('pets.pet_detail_page', id=id)
 
     if request.method =='GET':
         template_data = {}
-        pet = get_object_or_404(Pet, id=pet_id)
+        pet = get_object_or_404(Pet, id=id)
 
         template_data['page_title'] = "Edit review for {0} ({1}) | Edit review page".format(pet.name, pet.breed)
         template_data['review'] = review
@@ -65,6 +65,6 @@ def edit_review(request: HttpRequest, pet_id: int, review_id: int) -> HttpRespon
         review.comments = request.POST['comments']
         review.save()
 
-        return redirect('pets.pet_detail_page', id=pet_id)
+        return redirect('pets.pet_detail_page', id=id)
     else:
-        return redirect('pets.pet_detail_page', id=pet_id)
+        return redirect('pets.pet_detail_page', id=id)
