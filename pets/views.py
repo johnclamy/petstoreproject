@@ -59,7 +59,7 @@ def edit_review(request: HttpRequest, id: int, review_id: int) -> HttpResponse:
         template_data['page_title'] = "Edit review for {0} ({1}) | Edit review page".format(pet.name, pet.breed)
         template_data['review'] = review
 
-        return render(request, 'pets/edit_review.html', {'data': template_data})
+        return render(request, 'pets/edit-review.html', {'data': template_data})
     
     elif request.method == 'POST' and request.POST['comments'] != '':
         review.comments = request.POST['comments']
