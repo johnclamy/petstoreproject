@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Pet, Review
 
@@ -43,3 +43,28 @@ def create_review(request: HttpRequest, id: int) -> HttpResponse:
         return redirect('pets.pet_detail_page', id=id)
     else:
         return redirect('pets.pet_detail_page', id=id)
+
+
+@login_required
+def edit_review(request: HttpRequest, pet_id: int, review_id: int) -> HttpResponse:
+    review = get_object_or_404(Review, id=review_id)
+
+    if request.user != review.user:
+        return redirect('pets.pet_detail_page', id=pet_id)
+
+    if request.method =='GET':
+        template_data = {}
+        pet = get_object_or_404(Pet, id=pet_id)
+
+        template_data['page_title'] = "Edit review for {0} ({1}) | Edit review page".format(pet.name, pet.breed)
+        template_data['review'] = review
+
+        return render(request, 'pets/edit_review.html', {'data': template_data})
+    
+    elif request.method == 'POST' and request.POST['comments'] != '':
+        review.comments = request.POST['comments']
+        review.save()
+
+        return redirect('pets.pet_detail_page', id=pet_id)
+    else:
+        return redirect('pets.pet_detail_page', id=pet_id)
