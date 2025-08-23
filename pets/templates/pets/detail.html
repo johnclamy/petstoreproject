@@ -25,7 +25,7 @@
                             <div class="card shadow p-3 rounded text-center">
                                 <div style="background-color: var(--dj-bg-5)" class="card-header">Create a review</div>
                                 <div class="card-body">
-                                    <h3 class="my-3">Tell about your experience with this pet.</h3>
+                                    <h3 class="my-3">Share your experience with this pet.</h3>
                                     {% if user.is_authenticated %}
                                     <form action="{% url 'pets.create_review' id=data.pet.id %}" method="POST">
                                         {% csrf_token %}
@@ -58,31 +58,54 @@
             </div>
 
             <div class="col-md-5 col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0">Child <em>safety</em> with a {{ data.pet.breed }}</p>
-                            {% if data.pet.is_kids_friendly %}
-                                <i class="fa-solid fa-shield-dog"  style="color: #0a0"></i>
-                            {% else %}
-                                <i class="fa-solid fa-circle-exclamation" style="color: #a00"></i>
-                            {% endif %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p class="mb-0">Child <em>safety</em> with a {{ data.pet.breed }}</p>
+                                    {% if data.pet.is_kids_friendly %}
+                                        <i class="fa-solid fa-shield-dog"  style="color: #0a0"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-circle-exclamation" style="color: #a00"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+                                    This dog
+                                        {% if data.pet.is_kids_friendly %}                                        
+                                            <span class="text-success">could
+                                        {% else %}
+                                            <span class="text-danger fw-bolder"><strong>should not</strong>
+                                        {% endif %}
+                                        be left alone to play with kids.</span>
+                                </h5>
+                                <p class="card-text small" style="line-height: 1.2">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                                <a href="#">Fine out more</a>
+                            </div>
+                        </div> {% comment %} end of inner-card  {% endcomment %}
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <div class="card"  style="border: 1px solid var(--dj-border-2)">
+                            <div class="card-header" style="color:var(--dj-text-4);  border-bottom: 1px solid var(--dj-border-2)">Reviews</div>
+                            <ul class="list-group list-group-flush">
+                                {% for review in data.reviews %}
+                                <li class="list-group-item pb-3 pt-3">
+                                    <h5 class="card-title fst-italic" style="font-size: 1.05rem;">
+                                        Review by <b style="color: var(--dj-text-3); font-weight:600;">{{ review.user.username }}</b>
+                                    </h5>
+                                    <h6 class="card-subtitle mb-2 text-muted" style="font-size: 0.82rem;">
+                                        {{ review.date }}
+                                    </h6>
+                                    <p class="card-text my-3" style="line-height:1.3">{{ review.comments }}</p>
+                                </li>
+                                {% endfor %}
+                            </div>                                
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            This dog
-                                {% if data.pet.is_kids_friendly %}                                        
-                                    <span class="text-success">could
-                                {% else %}
-                                    <span class="text-danger fw-bolder"><strong>should not</strong>
-                                {% endif %}
-                                be left alone to play with kids.</span>
-                        </h5>
-                        <p class="card-text small" style="line-height: 1.2">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
-                        <a href="#">Fine out more</a>
-                    </div>
-                </div> {% comment %} end of inner-card  {% endcomment %}
+                </div> {% comment %} end of row {% endcomment %}
             </div>
         </section>
     </div>
