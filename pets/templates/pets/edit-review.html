@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="p-3">
+    <div class="container">
+        <section class="row mt-3">
+            <div class="col mx-auto mb-3">
+                <header>
+                    <h2 class="text-capitalize">edit review</h2>
+                    <hr />
+                </header>
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>
+                        <label for="comments">Comment:</label>
+                        <textarea name="comments" id="comments" rows="5" required class="form-control">
+                            {{ data.review.comments }}
+                        </textarea>                    
+                    </p>
+                    <div class="text-start">
+                        <button type="submit" class="mt-2 mb-3 btn btn-dj-primary text-capitalize">
+                            update review
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
