@@ -20,9 +20,11 @@ def pet_list_page(request: HttpRequest) -> HttpResponse:
 def pet_detail_page(request: HttpRequest, id: int) -> HttpResponse:
     template_data = {}
     pet = Pet.objects.get(id=id)
+    reviews = Review.objects.filter(pet=pet)
 
     template_data['page_title'] = "Your pet selection was {0} ({1}) | Detail pet page".format(pet.name, pet.breed)
     template_data['pet'] = pet
+    template_data['reviews'] = reviews
 
     return render(request, 'pets/detail.html', {'data': template_data})
 
