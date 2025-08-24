@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'default',
     'pets',
     'accounts',
+    'cart',
 ]
 
 MIDDLEWARE = [
