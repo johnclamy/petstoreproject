@@ -3,12 +3,28 @@
 {% load static %}
 <div class="p-3 mb-5">
     <div class="container">
-        <section class="row mt-5">
+        <section class="row mt-3 mt-lg-5">
             <div class="col-lg-6 mx-auto mb-3">
                 <header class="d-flex flex-wrap align-items-center justify-content-between">
                     <h2 class="oswald-headings fs-1 mb-2">{{ data.pet.name}} <span class="nunito-sans-typography fs-5 fw-lighter">({{ data.pet.breed }})</span></h2>
                     <i class="badge mb-2 mb-lg-3 px-4 py-2 fs-4" style="background: var(--dj-yellow); color: var(--dj-text);">£{{ data.pet.price }}</i>
                 </header>
+                <p class="text-center">
+                    <form method="post" action="{% url 'cart.add' id=data.pet.id %}">
+                        <div class="row d-flex justify-content-end align-items-center g-3">
+                            {% csrf_token %}
+                            <div class="col-auto">
+                                <div class="input-group col-auto">
+                                    <div class="input-group-text text-capitalize">quantity</div>
+                                    <input type="number" name="quantity" min="1" max="10" value="1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-dark">Add to cart</button>
+                            </div>
+                        </div>
+                    </form>
+                </p>
                 <hr class="mt-2 mt-xxl-3" />
                 <p class="mb-3 pb-3 fs-5">{{ data.pet.description }}</p>
             </div>
