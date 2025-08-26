@@ -29,4 +29,4 @@ def add(request: HttpRequest, id: int) -> HttpResponse:
     cart[id] = request.POST['quantity']
     request.session['cart'] = cart
 
-    return redirect('default.home_page')
+    return redirect('cart.cart_home_page')
