@@ -30,3 +30,8 @@ def add(request: HttpRequest, id: int) -> HttpResponse:
     request.session['cart'] = cart
 
     return redirect('cart.cart_home_page')
+
+
+def clear(request: HttpRequest, id: int) -> HttpResponse:
+    request.session['cart'] = {}
+    return redirect('cart.cart_home_page')
