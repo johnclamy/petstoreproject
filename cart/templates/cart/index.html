@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+{% load static %}
+{% load cart_filters %}
+<div class="p-3">
+    <div class="container">
+        <header class="row mt-3">
+            <div> class="col mx-auto mb-3">                
+                <h1 class="display-4 text-capitalize">your shopping cart</h1>
+                <hr />
+            </div>
+        </header>
+        <section class="row m-1">
+           <table class="table table-bordered table-striped text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pet in data.pets_in_cart %}
+                    <tr>
+                        <td><img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;"></td>
+                        <td>{{ pet.name }}</td>
+                        <td>${{ pet.price }}</td>
+                        <td>{{ request.session.cart|get_quantity:pet.id }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">Your cart is empty.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+           </table> 
+        </section>
+        <section class="row">
+            <div class="text-end">
+                <a class="btn btn-outline-secondary mb-2">
+                    <b>Total to pay:</b> £{{ template_data.cart_total }}
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
