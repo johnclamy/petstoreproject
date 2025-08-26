@@ -254,6 +254,18 @@ nav {
     color: var(--dj-text);
 }
 
+.nav-links .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    background-color: var(--dj-yellow);
+    color: var(--bs-dark);
+    border-radius: 50%;
+    font-weight: 700;
+}
+
 /* mobile: 580px */
 @media (max-width: 36.25rem) {
     .header-top__address {
