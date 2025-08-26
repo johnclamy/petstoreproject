@@ -46,7 +46,14 @@
                     <li><a href="#">blog</a></li>
                     <li><a href="{% url 'default.about_us_page' %}">about us</a></li>
                     <li><a href="#">contact</a></li>
-                    <li><a href="#">cart</a></li>
+                    <li class="nav-links__cart">
+                        <a href="{% url 'cart.cart_home_page' %}">
+                            <b>cart</b>
+                            <i class="fa-solid fa-cart-shopping" style="font-size:18px;"></i>
+                            <i class="badge bg-warning text-dark rounded-circle cart-count">{{ request.session.cart|length }}</i>
+                        </a>
+                            
+                    </li>
                     {% if user.is_authenticated %}
                     <li><a href="#">orders</a></li>
                     <li><a href="{% url 'accounts.user_logout' %}">logout <b>({{user.username}})</b></a></li>
