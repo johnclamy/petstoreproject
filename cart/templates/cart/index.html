@@ -25,7 +25,7 @@
                     <tr>
                         <td><img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;"></td>
                         <td>{{ pet.name }}</td>
-                        <td>${{ pet.price }}</td>
+                        <td>£{{ pet.price }}</td>
                         <td>{{ request.session.cart|get_quantity:pet.id }}</td>
                     </tr>
                     {% empty %}
