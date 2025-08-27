@@ -37,10 +37,16 @@
            </table> 
         </section>
         <section class="row mt-4 mb-5">
-            <div class="text-end">
-                <a class="btn btn-dj-primary mb-2 text-white">
+            <div class="text-center text-md-end">
+                <a class="btn btn-dj-primary text-white me-5 mb-4 mb-md-0">
                     <b>Total to pay:</b> £{{ data.cart_total }}
                 </a>
+                {% if data.pets_in_cart|length > 0 %}
+                <a href="{% url 'cart.clear' %}" class="btn btn-dj-loud">
+                    <b>clear cart</b>
+                </a>
+                {% endif %}
+                
             </div>
         </section>
     </div>
