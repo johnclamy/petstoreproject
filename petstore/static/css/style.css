@@ -141,8 +141,29 @@ body {
     padding: calc(var(--padding) * 0.9) calc(var(--padding) * 2);
 }
 
+.btn-dj-loud:visited,
+.btn-dj-loud:active {
+    color: var(--bs-white);
+}
+
 .btn-dj-primary:hover {
     background: linear-gradient(to bottom right, var(--dj-pale-blue), var(--dj-dark-cyan));
+}
+
+.btn-dj-loud {
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--bs-white);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: calc(var(--font-size) * 1.6);
+    background: linear-gradient(to bottom right, var(--dj-dark-red), var(--dj-dark-orange));
+    padding: calc(var(--padding) * 0.9) calc(var(--padding) * 2);
+}
+
+.btn-dj-loud:hover {
+    color: var(--bs-white);
+    background: linear-gradient(to bottom right, var(--dj-dark-red), var(--dj-red));
 }
 
 /* Header */
