@@ -57,8 +57,8 @@ def purchase(request: HttpRequest) -> HttpResponse:
     for pet in pets_in_cart:
         item = Item()
         item.pet = pet
-        item.price = pet.price
         item.order = order
+        item.price = pet.price
         item.quantity = cart[str(pet.id)]
         item.save()
 
