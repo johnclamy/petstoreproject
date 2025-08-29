@@ -55,7 +55,7 @@
                             
                     </li>
                     {% if user.is_authenticated %}
-                    <li><a href="#">orders</a></li>
+                    <li><a href="{% url 'accounts.orders' %}">orders</a></li>
                     <li><a href="{% url 'accounts.user_logout' %}">logout <b>({{user.username}})</b></a></li>
                     {% else %}
                     <li><a href="{% url 'accounts.signin_page' %}">sign in</a></li>                        
