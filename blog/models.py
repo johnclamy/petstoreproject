@@ -10,5 +10,8 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now__add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['-publish']  # define a default sort order for displaying posts
+
     def __str__(self):
         return self.title
