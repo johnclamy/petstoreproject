@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import AccountsForm, Errors
 
@@ -50,3 +51,12 @@ def signin_page(request: HttpRequest) -> HttpResponse:
 def user_logout(request):
     logout(request)
     return redirect('default.home_page')
+
+
+@login_required
+def orders(request: HttpRequest) -> HttpResponse:
+    template_data = {}
+    template_data['page_title'] = 'Your orders breakdown | Orders page'
+    template_data['orders'] = request.user.order_set.all()
+
+    return render(request, 'accounts/orders.html', {'data': template_data})
