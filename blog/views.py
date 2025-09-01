@@ -1,5 +1,5 @@
-from django.http import Http404, HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
@@ -14,10 +14,7 @@ def post_list_page(request: HttpRequest) -> HttpResponse:
 
 
 def post_detail_page(request: HttpRequest, id: int) -> HttpResponse:
-    try:
-        post = Post.published.get(id=id)       
-    except Post.DoesNotExist:
-        raise Http404('Post record not found.')
+    post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
 
     template_data = {}
     template_data['page_title'] = 'Blog post titled "{0}" | blog detail page'.format(post.title)
