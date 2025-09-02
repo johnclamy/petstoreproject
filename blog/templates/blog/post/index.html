@@ -1,5 +1,8 @@
-{% extends "blog/layout.html" %}
+{% extends "../layout-blog.html" %}
 {% block content %}
 <h1>Main Blog Title</h1>
 <p>Welcome to the main blog page!</p>
 {% endblock content %}
+{% block sidebar %}
+    {{ block.super }}
+{% endblock sidebar %}
