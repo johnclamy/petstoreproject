@@ -10,7 +10,7 @@ def post_list_page(request: HttpRequest) -> HttpResponse:
     template_data['page_title'] = 'Blog posts on Petzy | blog list page'
     template_data['posts'] = posts
 
-    return render(request, 'blog/post/index.html', {'data': template_data})
+    return render(request, 'blog/index.html', {'data': template_data})
 
 
 def post_detail_page(request: HttpRequest, id: int) -> HttpResponse:
@@ -20,4 +20,4 @@ def post_detail_page(request: HttpRequest, id: int) -> HttpResponse:
     template_data['page_title'] = 'Blog post titled "{0}" | blog detail page'.format(post.title)
     template_data['post'] = post 
 
-    return render(request, 'blog/post/post-detail.html', {'data': template_data})
+    return render(request, 'blog/post-detail.html', {'data': template_data})
