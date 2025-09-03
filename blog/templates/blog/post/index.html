@@ -19,13 +19,13 @@
 
                     {% for post in data.posts %}
                     <div class="card mb-4">
-                        <div class="card-header">Post by{{ post.author }}</div>
+                        <div class="card-header fw-normal fst-italic">Published {{ post.publish }} by <b class="fw-bold">{{ post.author }}</></div>
                         <div class="card-body">
-                            <div class="small text-muted">{{ post.publish }}</div>
+                            <div class="small text-muted fw-light"> Created at {{ post.created }}</div>
                             <h2 class="card-title">
                                 <a href="{% url 'blog:post.post_detail_page' post.id %}">{{ post.title }}</a>
                             </h2>
-                            <p class="card-text">{{ post.body }}</p>
+                            <p class="card-text py-0">{{ post.body|truncatewords:30|linebreaks }}</p>
                             <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
