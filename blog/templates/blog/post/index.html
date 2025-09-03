@@ -8,6 +8,32 @@
         </div>
     </div>
 </header>
+<div class="container">
+    <section class="row">
+        <!-- Blog entries -->
+        <div class="col-lg-8">
+            <!-- Featured blog post goes here... -->
+            <!-- Nested row for non-featured blog posts-->            
+            <div class="row">
+                <div class="col-lg-6">
+
+                    {% for post in data.posts %}
+                    <div class="card mb-4">
+                        <div class="card-header">Post by{{ post.author }}</div>
+                        <div class="card-body">
+                            <div class="small text-muted">{{ post.publish }}</div>
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text">{{ post.body }}</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>        
+        </div>
+    </section>
+</div>
 {% endblock content %}
 {% block sidebar %}
     {{ block.super }}
