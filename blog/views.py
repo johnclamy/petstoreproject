@@ -13,8 +13,15 @@ def post_list_page(request: HttpRequest) -> HttpResponse:
     return render(request, 'blog/post/index.html', {'data': template_data})
 
 
-def post_detail_page(request: HttpRequest, id: int) -> HttpResponse:
-    post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
+def post_detail_page(request: HttpRequest, year: int, month: int, day: int, post: str) -> HttpResponse:
+    post = get_object_or_404(
+        Post,
+        status=Post.Status.PUBLISHED,
+        slug=post,
+        publish__year=year,
+        publish__month=month,
+        publish__day=day
+    )
 
     template_data = {}
     template_data['page_title'] = 'Blog post titled "{0}" | blog detail page'.format(post.title)
