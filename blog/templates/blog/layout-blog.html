@@ -1,13 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-
-{% block aside %}
-<div class="card text-bg-info mb-3">
-    <div class="card-header">Petzy's Blog</div>
-    <div class="card-body">
-        <h5 class="card-title">This is a blog about pets</h5>
-        <p class="card-text">Share any info you may have about you pet to help others become better pet owners.</p>
+    {% block aside %}
+    <div class="card text-bg-info mb-3 h-100">
+        <div class="card-header">Petzy's Blog</div>
+        <div class="card-body">
+            <h5 class="card-title">This is a blog about pets</h5>
+            <p class="card-text">Share any info you may have about you pet to help others become better pet owners.</p>
+        </div>
     </div>
-</div>
-{% endblock aside %}
+    {% endblock aside %}
 {% endblock content %}
