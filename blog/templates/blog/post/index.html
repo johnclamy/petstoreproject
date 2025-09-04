@@ -1,7 +1,7 @@
 {% extends "../layout-blog.html" %}
 {% block content %}
 <div class="container">
-    <section class="mt-3 d-flex flex-column flex-lg-row justify-content-center">
+    <section class="mt-3 ps-5 pe-4 d-flex flex-column flex-lg-row justify-content-center">
         <!-- Featured blog post goes here... -->
         <!-- Nested row for non-featured blog posts-->
         <div class="col-lg-6 me-lg-5">
@@ -19,7 +19,7 @@
             {% endfor %}
         </div>
         {% block aside %}
-            {% block {{ block.super }} %}{% endblock {{ block.super }} %}   
+            {{ block.super }}  
         {% endblock aside %}
     </section>
 </div>
