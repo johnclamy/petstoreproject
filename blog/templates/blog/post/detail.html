@@ -11,9 +11,9 @@
 <div class="container">    
     <section class="mt-3 ps-5 pe-4 d-flex flex-column flex-lg-row justify-content-center">
         <div class="col-lg-6 me-lg-5">
-            <h1>{{post.title}}</h1>
-            <p>Published {{ post.publish }} by {{ post.author }}</p>
-            {{ post.body|linebreaks }}            
+            <h1>{{data.post.title}}</h1>
+            <p>Published {{ data.post.publish }} by {{ data.post.author }}</p>
+            {{ data.post.body|linebreaks }}            
         </div>
         {% block aside %}
             {{ block.super }}  
