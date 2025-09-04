@@ -26,9 +26,11 @@
             </div>
             {% endfor %}
         </div>
+        <aside class="h-auto">
         {% block aside %}
             {{ block.super }}  
         {% endblock aside %}
+        </aside>
     </section>
 </div>
 {% endblock content %}
